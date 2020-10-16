@@ -1,0 +1,15 @@
+syntax = "proto3";
+package goDemo;
+
+service Details {
+    rpc Get (GetDetailRequest) returns (Detail);
+}
+
+message GetDetailRequest {
+    uint64 id = 1;
+}
+
+message Detail {
+    uint64 id = 1;
+    string name = 2;
+}
