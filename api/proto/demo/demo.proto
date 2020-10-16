@@ -1,5 +1,5 @@
 syntax = "proto3";
-package goDemo;
+package demo;
 
 service Details {
     rpc Get (GetDetailRequest) returns (Detail);
