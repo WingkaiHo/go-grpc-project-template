@@ -19,7 +19,7 @@ var _ = Describe("Details service", func() {
 	conn, _ := grpc.Dial(port, grpc.WithInsecure())
 
 	client := pb.NewDetailsClient(conn)
-	It("Details.Get", func() {
+	It("Should Details.Get be successful", func() {
 		id := uint64(1)
 		resp, err := client.Get(context.Background(), &pb.GetDetailRequest{
 			Id: id,
