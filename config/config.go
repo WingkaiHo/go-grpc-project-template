@@ -1,5 +1,9 @@
 package config
 
+import (
+	"os"
+)
+
 // AppConfig is app config
 type AppConfig struct {
 	App  string
@@ -7,9 +11,17 @@ type AppConfig struct {
 	Env  string
 }
 
-// Config values
-var Config = &AppConfig{
-	App:  "go-grpc-project-template",
-	Port: 55006,
-	Env:  "development",
+// GetConfigByEnv get app config by os env: "ENV"
+func GetConfigByEnv() *AppConfig {
+	env := os.Getenv("ENV")
+
+	switch env {
+	case "production":
+		return productConfig
+	case "stage":
+		return stageConfig
+	default:
+		os.Setenv("ENV", "development")
+		return devConfig
+	}
 }
