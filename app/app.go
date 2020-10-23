@@ -11,7 +11,7 @@ import (
 )
 
 // StartApp start grpc server
-func StartApp(cfg config.AppConfig) {
+func StartApp(cfg *config.AppConfig) {
 	server := grpc.NewServer()
 	controller.RegisterAllServer(server)
 
