@@ -1,0 +1,10 @@
+vendor/
+.eslintcache
+temp/
+tmp/
+bak/
+.bak
+.tmp
+.vscode/
+*.pb.go
+go-grpc-project-template
