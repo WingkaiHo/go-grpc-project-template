@@ -2,14 +2,14 @@ syntax = "proto3";
 package demo;
 
 service Details {
-    rpc Get (GetDetailRequest) returns (Detail);
+    rpc Get (GetDetailRequest) returns (GetDetailResponse);
 }
 
 message GetDetailRequest {
     uint64 id = 1;
 }
 
-message Detail {
+message GetDetailResponse {
     uint64 id = 1;
     string name = 2;
 }
