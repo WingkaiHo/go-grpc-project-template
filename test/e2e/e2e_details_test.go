@@ -15,18 +15,21 @@ import (
 
 var _ = Describe("Details service", func() {
 	cfg := config.GetConfigByEnv()
-	conn, _ := grpc.Dial(":"+strconv.Itoa(cfg.Port), grpc.WithInsecure())
+	port := ":" + strconv.Itoa(cfg.Port)
+	conn, _ := grpc.Dial(port, grpc.WithInsecure())
 
 	client := pb.NewDetailsClient(conn)
 	It("Details.Get", func() {
-		id := 1
+		id := uint64(1)
 		resp, err := client.Get(context.Background(), &pb.GetDetailRequest{
-			Id: uint64(id),
+			Id: id,
 		})
 
 		host, _ := os.Hostname()
 		name := fmt.Sprintf("%s-%d", host, id)
+
 		Expect(err).To(BeNil())
+		fmt.Println(resp, err)
 		Expect(resp.Name).To(Equal(name))
 	})
 

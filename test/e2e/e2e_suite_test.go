@@ -14,7 +14,7 @@ import (
 var _ = BeforeSuite(func() {
 	cfg := config.GetConfigByEnv()
 	go app.StartApp(cfg)
-	time.Sleep(5 * time.Second)
+	time.Sleep(2 * time.Second)
 })
 
 func TestE2e(t *testing.T) {
