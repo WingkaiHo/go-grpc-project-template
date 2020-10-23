@@ -7,4 +7,5 @@ bak/
 .tmp
 .vscode/
 *.pb.go
+*.swp
 go-grpc-project-template
